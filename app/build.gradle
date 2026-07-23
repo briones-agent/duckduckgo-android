@@ -293,6 +293,11 @@ fladle {
 }
 
 dependencies {
+    // Expo brownfield demo: single fused AAR bundling all Expo/React Native modules,
+    // built via `expo-brownfield build:android --fused` and served from
+    // https://github.com/briones-agent/packages
+    implementation 'dev.expo.brownfield:expobrownfield-fused-release:1.0.1'
+
     ksp project(':anvil-ksp')
 	implementation project(":duckchat-api")
 	implementation project(":duckchat-impl")

@@ -252,6 +252,15 @@
                 app:menuSize="medium"
                 app:primaryText="@string/browserMenuDownloads" />
 
+            <!-- Expo brownfield demo: opens the React Native screen from the fused AAR -->
+            <com.duckduckgo.common.ui.view.MenuItemView
+                android:id="@+id/expoMenuItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:iconDrawable="@drawable/ic_globe_24"
+                app:menuSize="medium"
+                app:primaryText="Expo" />
+
             <com.duckduckgo.common.ui.view.divider.HorizontalDivider
                 android:id="@+id/privacyToolsSectionDivider"
                 android:layout_width="match_parent"

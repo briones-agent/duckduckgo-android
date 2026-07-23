@@ -8,7 +8,7 @@ buildscript {
     ext {
         min_sdk = 26
         target_sdk = 35
-        compile_sdk = 35
+        compile_sdk = 36 // Expo brownfield demo: fused AAR requires minCompileSdk 36
 
         // Calculate lint_version (must always be gradle_plugin + 23)
         def gradle_plugin_version = versionFor(project, Android.tools.build.gradlePlugin)
@@ -61,6 +61,11 @@ if (proprietaryFontAvailable) {
 
 allprojects {
     repositories {
+        // Expo brownfield demo: fused Expo/React Native AAR, see https://github.com/briones-agent/packages
+        maven {
+            url 'https://raw.githubusercontent.com/briones-agent/packages/main/maven'
+            content { includeGroup 'dev.expo.brownfield' }
+        }
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }

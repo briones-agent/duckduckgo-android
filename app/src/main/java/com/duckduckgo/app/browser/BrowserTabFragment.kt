@@ -1891,6 +1891,10 @@ class BrowserTabFragment :
                 pixel.fire(AppPixelName.MENU_ACTION_DOWNLOADS_PRESSED)
                 browserActivity?.launchDownloads()
             }
+            onMenuItemClicked(expoMenuItem) {
+                // Expo brownfield demo: opens the React Native screen from the fused AAR.
+                startActivity(android.content.Intent(requireContext(), com.duckduckgo.app.expo.ExpoActivity::class.java))
+            }
             onMenuItemClicked(settingsMenuItem) {
                 pixel.fire(AppPixelName.MENU_ACTION_SETTINGS_PRESSED)
                 pixel.fire(AppPixelName.SHEET_MENU_SETTINGS)

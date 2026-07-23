@@ -157,6 +157,10 @@ class BrowserMenuBottomSheet(
     val createAliasMenuItem: MenuItemView
         get() = binding.createAliasMenuItem
 
+    // Expo brownfield demo menu entry.
+    val expoMenuItem: MenuItemView
+        get() = binding.expoMenuItem
+
     val downloadsMenuItem: MenuItemView
         get() = binding.downloadsMenuItem
 
@@ -276,6 +280,8 @@ class BrowserMenuBottomSheet(
         refreshActionMenuItem.isVisible = false
         bookmarksMenuItem.isVisible = true
         downloadsMenuItem.isVisible = true
+        // Expo brownfield demo menu entry.
+        expoMenuItem.isVisible = true
     }
 
     private fun renderBrowserMenu(viewState: BrowserMenuViewState.Browser) {
