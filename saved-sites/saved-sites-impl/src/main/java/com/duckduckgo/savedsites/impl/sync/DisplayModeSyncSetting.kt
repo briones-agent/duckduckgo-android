@@ -61,7 +61,8 @@ class DisplayModeSyncSetting @JvmOverloads constructor(
 
         binding.syncSettingsOptionFavourites.setOnCheckedChangeListener(
             object : OnCheckedChangeListener {
-                override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+                // buttonView is non-null since compileSdk 36
+                override fun onCheckedChanged(buttonView: CompoundButton, isChecked: Boolean) {
                     viewModel.onDisplayModeChanged(isChecked)
                 }
             },

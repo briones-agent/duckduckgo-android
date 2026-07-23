@@ -1,3 +1,20 @@
+# DuckDuckGo Android + React Native
+
+This is an experimental fork of the official [DuckDuckGo Android](https://github.com/duckduckgo/Android) with the sole purpose of testing brownfield support for Expo and React Native in large native-first codebases. Its commits serve as a reference for anyone interested in integrating React Native into an existing Android app, especially those that don't want to refactor the whole project structure to accommodate React Native.
+
+This project uses Expo's brownfield isolated approach, consuming a prebuilt **fused AAR** (a single artifact bundling the brownfield library, all autolinked Expo/React Native modules, and the release JS bundle) from a remote Maven repository — no local React Native toolchain is required to build this fork.
+
+## Integration steps
+
+Check commits for detailed steps, full instructions can be found in the [expo-brownfield documentation](https://docs.expo.dev/brownfield/overview/). The fused AAR is built with `npx expo-brownfield build:android --fused` from the Expo app in [briones-agent/packages](https://github.com/briones-agent/packages) and published there as a static Maven repository.
+
+1. **Add the Maven repository**: In the root `build.gradle`, add `https://raw.githubusercontent.com/briones-agent/packages/main/maven` to `allprojects.repositories`.
+2. **Add the dependency**: `implementation 'dev.expo.brownfield:expobrownfield-fused-release:1.0.1'` in `app/build.gradle`.
+3. **Add React Native view**: Subclass `dev.expo.brownfield.BrownfieldActivity` (shipped inside the AAR), call `showReactNativeFragment()`, register the activity in the manifest, and launch it from an "Expo" entry in the browser's bottom-sheet menu.
+
+<details>
+<summary>DuckDuckGo Android</summary>
+
 # DuckDuckGo Android
 
 Welcome to our android application. We are excited to engage the community in development, see [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -28,3 +45,5 @@ Contact us at https://duckduckgo.com/feedback if you have feedback, questions or
 
 ## License
 DuckDuckGo android is distributed under the Apache 2.0 [license](LICENSE).
+
+</details>
